@@ -5,10 +5,9 @@ jobs:
   test_code_style:
     name: "Check code style with uncrustify"
     runs-on: ubuntu-latest
-    container: ubuntu:latest
     steps:
-        - run: apt-get update
-        - run: apt-get install -y git cmake gcc make
+        - run: sudo apt-get update
+        - run: sudo apt-get install -y git cmake gcc make
         - run: git clone http://github.com/ammen99/uncrustify
         - run: cd uncrustify && cmake build && cd build && make
         - run: cd uncrustify && cmake build && cd build && make && cd ../../
