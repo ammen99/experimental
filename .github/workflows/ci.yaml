@@ -11,4 +11,4 @@ jobs:
         - run: git clone http://github.com/ammen99/uncrustify
         - run: cd uncrustify && mkdir build && cd build && cmake ../ && make && export PATH=$PATH:$(pwd) && cd ../../
         - uses: actions/checkout@v1
-        - git ls-files | grep "hpp$\|cpp" | xargs uncrustify -c uncrustify.ini --check -f
+        - run: git ls-files | grep "hpp$\|cpp$" | xargs uncrustify -c uncrustify.ini --check -f
