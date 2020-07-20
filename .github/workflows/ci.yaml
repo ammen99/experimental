@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     container: archlinux:latest
     steps:
-    - run: sed 's/^keyserver.*/keyserver keyserver hkps:\/\/hkps.pool.sks-keyservers.net:443/' -i /etc/pacman.d/gnupg/gpg.conf
+    - run: sed 's/^keyserver.*/keyserver keyserver keyserver hkp:\/\/pgp.mit.edu:80/' -i /etc/pacman.d/gnupg/gpg.conf
     - run: pacman-key --recv-key EA50C866329648EE && echo "[andontie-aur]" >> /etc/pacman.conf && echo "Server = https://aur.andontie.net/\$arch" >> /etc/pacman.conf && echo "SigLevel = Never" >> /etc/pacman.conf
     - run: pacman --noconfirm --noprogressbar -Syyu
     - run: pacman --noconfirm --noprogressbar -Sy git clang lld libc++ pkgconf meson ninja wayland wayland-protocols libinput libxkbcommon pixman glm libdrm libglvnd cairo
