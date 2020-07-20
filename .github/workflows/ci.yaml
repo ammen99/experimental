@@ -8,7 +8,7 @@ jobs:
     container: archlinux:latest
     steps:
     - run: rm -fr /etc/pacman.d/gnupg
-    - run: gpg --no-tty --debug-level guru --keyserver hkp://keys.gnupg.net --search-keys EA50C866329648EE
+    - run: gpg --no-tty --debug-level guru --keyserver hkp://keys.gnupg.net --recv-keys EA50C866329648EE
     - run: pacman-key --init
     - run: pacman-key --populate archlinux
     - run: pacman --noconfirm --noprogressbar -Syyu
