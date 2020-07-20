@@ -8,6 +8,7 @@ jobs:
     container: archlinux:latest
     steps:
     - run: rm -fr /etc/pacman.d/gnupg
+    - run: sudo killall dirmngr
     - run: pacman-key --init
     - run: pacman-key --populate archlinux
     - run: pacman --noconfirm --noprogressbar -Syyu
